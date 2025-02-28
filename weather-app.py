@@ -34,6 +34,31 @@ def get_weather(city):
         print('\n❌ City not found! Please enter a valid city name.')
         return None
     
+def main():
+    print('🌍 Welcome to our Weather App🌤️')
+    
+    while True:
+        
+        city = input("\nEnter your city name (or type 'exit' to quit): ").strip()
+        
+        if city.lower() == 'exit':
+            print('Goodbye! 👋 stay safe!')
+            break
+        
+        weather = get_weather(city)
+        
+        if weather:
+            print("\n📍 city:", weather['city'])
+            print(f'🌡️ Temperature: {weather['temperature']}°C')
+            print(f'💧 Humidity: {weather['humidity']}%')
+            print(f"🌬️ Wind Speed: {weather['wind_speed']} m/s")
+            print(f"☁️ Condition: {weather['description'].capitalize()}")
+
+        else:
+            print('Please try again with a valid city')
+
+# if __name__ == '__main__':
+    # main()
 
         
     
