@@ -8,11 +8,18 @@ BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 def get_weather(city):
     
     try:
+        # define api requests parameters
+        params = {
+            'q' : city,
+            'appid': API_KEY,
+            'units': 'metric'
+        }
          
-        # params=params tells Python to attach the parameters to the request
+        # sends request to openwerather
         response = requests.get(BASE_URL, params=params, timeout=10)
         response.raise_for_status() # This checks if the request was successful
         
+        # Convert response data from JSON format to Python dictionary
         data = response.json()
         
         weather = {
@@ -57,8 +64,8 @@ def main():
         else:
             print('Please try again with a valid city')
 
-# if __name__ == '__main__':
-    # main()
+if __name__ == '__main__':
+    main()
 
         
     
